@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+
+<label><input id="inpt1" type="text"></label>
+<label><input id="inpt2" type="text"></label>
+<label><input id="inpt3" type="text"></label>
+
+<label><input type="button" value="add" id="add" onclick="addList()"></label><br><br>
+<label><input id="inpt4" type="text"></label>
+<label><input id="inpt5" type="text"></label>
+<label><input id="inpt6" type="text"></label>
+
+<p id="list"></p>
+<p id="demo"></p>
+
+<script>
+
+
+    let arr = [];
+
+    function displayList() {
+        let board = ""
+        for (let i = 0; i < arr.length; i++) {
+            board += `<table>
+                <tr>
+                  <td id="item${i}">${arr[i]}</td>
+                  <td><input id="edit${i}" value="Edit" type="button" onclick="editItem(${i})"></td>
+                  <td><input id="delete${i}" value="Delete" type="button" onclick="deleteItem(${i})"></td>
+                    </tr>
+                 </table>`
+        }
+        document.getElementById('list').innerHTML = board;
+    }
+
+    function addList() {
+        let x = document.getElementById('inpt1').value
+        let y = document.getElementById('inpt2').value
+        let z = document.getElementById('inpt3').value
+if(x===""||y===""||z===""){
+    alert('Nhap lai thong tin')
+}else{
+        let a = `<table border="1px"  >
+<tr>
+<td style="width:200px">${x}</td>
+<td style="width:200px">${y}</td>
+<td style="width:200px">${z}</td>
+
+</tr></table>`
+        arr.splice(0, 0, a)
+        document.getElementById('inpt1').value = '';
+        document.getElementById('inpt2').value = '';
+        document.getElementById('inpt3').value = '';
+        displayList();
+    }}
+    function deleteItem(index) {
+        arr.splice(index, 1)
+        displayList();
+    }
+
+    function editItem(index) {
+        let x = document.getElementById('inpt4').value
+        let y = document.getElementById('inpt5').value
+        let z = document.getElementById('inpt6').value
+
+        let b = `<table   border="1px">
+<tr>
+<td style="width:200px">${x}</td>
+<td style="width:200px">${y}</td>
+<td style="width:200px">${z}</td>
+
+</tr></table>`
+        arr[index] = b;
+        document.getElementById('inpt4').value = ''
+        document.getElementById('inpt5').value = ''
+        document.getElementById('inpt6').value = ''
+        displayList();
+    }
+
+
+    // function sum(arr){  //ham tong chia het cho 5
+    //     let x=0;
+    //     for(let i=0;i<arr.length;i++){
+    //         if(arr[i]%5===0){
+    //            x +=arr[i];
+    //         }
+    //     }return x;
+    // }
+    // document.write(sum([5,2,100,10,1]))
+    ///hien thi phan tu chia het cho 5;
+
+    // function hienthi(arr){
+    //    let  arr1=[]
+    //     for(let i=0; i<arr.length;i++){
+    //        if(arr[i]%5===0){
+    //            arr1.push(arr[i])
+    //        }
+    //     }return arr1;
+    // }
+    //     document.write(hienthi([5,2,100,10,1]))
+
+    // function replaceN(arr,n){
+    //         arr[0]=n-1;
+    //     return arr;
+    // }
+    //
+    // document.write(replaceN([2,4,5,8],100))
+
+
+</script>
+</body>
+</html>
