@@ -5,18 +5,59 @@
     <meta charset="UTF-8">
     <title>test</title>
     <script language="javascript" src="quanLyVatTu2.js"></script>
+    <style>
+        h3{
+            text-align: center;
+            padding-top:30px;
+        }
+        body{
+            background-color: #d0e3e5;
+        }
+        table ,th,td {
+            padding-left: 15px;
+            background-color: #9af3bf;
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+        div {
+            padding-left:10px;
+          background-color: #62cbc8;
+        }
+    </style>
 </head>
 <body onload="showEquip()">
+<div >
 <h3>QUẢN LÝ VẬT TƯ NGÀNH ĐIỆN</h3>
-<label><input id="name" type="text"></label>
-<label><input id="spec" type="text"></label>
-<label><input id="price" type="text"></label>
-<label><input type="button" value="Thêm mới" id="add" onclick="addEquip()"></label><br><br>
-<p id="list"></p>
+<form onsubmit="addEquip();return false;">
+    <label for="name">Tên:</label><br>
+    <input id="name" type="text" style="width:200px"><br>
+    <label for="spec">Quy cách:</label><br>
+    <input id="spec" type="text" style="width:200px"><br>
+    <label for="qual">Số lượng:</label><br>
+    <input id="qual" type="text" style="width:200px"><br>
+    <label for="price">Giá:</label><br>
+    <input id="price" type="text" style="width:200px">
+    <button id="add">Thêm</button></form><button style="display:none" id="load" onclick="reload()">Cập nhật</button>
+    <input type="hidden" id="temp">
+    <br><br>
+
+<input type="text" id="isearch" style="width:200px">
+    <button onclick="searchEquip()">Tìm Kiếm</button><br>
+<br>
+</div>
+<table  >
+    <tr>
+    <th style="width:10px">STT</th>
+    <th style="width:300px">Tên</th>
+    <th style="width:300px">Quy Cách</th>
+    <th style="width:100px" >Số lượng</th>
+    <th style="width:150px">Giá (Vnd)</th>
+    <th style="width:100px">Sửa đổi</th>
+</tr>
+    <tbody id="list">
+    </tbody>
+</table>
 <p id="demo"></p>
 
-<script>
-
-</script>
 </body>
 </html>
